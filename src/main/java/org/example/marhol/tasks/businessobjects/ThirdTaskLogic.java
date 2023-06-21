@@ -7,7 +7,7 @@ import org.example.marhol.tasks.services.Reader;
 public class ThirdTaskLogic {
 
     private static final int MULTIPLE = 3;
-    private static final String ERROR_MESSAGE = "В массиве присутствуют не цифры";
+    private static final String ERROR_MESSAGE = "В массиве присутствуют не только целые числа";
     private static final String RESULT_MESSAGE = String.format("Следующие числа в вашем массиве кратны %s", MULTIPLE);
     private static final String ARRAY_REQUEST_MESSAGE = "Введите массив чисел разделяя числа пробелами или Q/q для выхода.";
     private static final String WELCOME_MESSAGE = String.format("Давайте узнаем, какие числа в вашем массиве картны %s ?", MULTIPLE);
@@ -27,16 +27,16 @@ public class ThirdTaskLogic {
         printer.println(WELCOME_MESSAGE);
         while (true) {
             printer.println("\n" + ARRAY_REQUEST_MESSAGE);
-            String string = reader.scanString();
-            if (check.checkIfRegexMatches(string, REGEX_FOR_ARRAY_OF_NUMBERS)) {
-                if (check.checkForExitSignal(string)) {
+            String stringOfNumbers = reader.scanString();
+            if (check.checkIfRegexMatches(stringOfNumbers, REGEX_FOR_ARRAY_OF_NUMBERS)) {
+                if (check.checkForExitSignal(stringOfNumbers)) {
                     printer.printBuyMessage();
                     break;
                 }
                 else {
-                    String[] stringArray = string.split(SPACE);
+                    String[] array = stringOfNumbers.split(SPACE);
                     printer.println(RESULT_MESSAGE);
-                    for (String s : stringArray) {
+                    for (String s : array) {
                         if (reader.readeNumberFromString(s) % MULTIPLE == 0) {
                             printer.print(s + SPACE);
                         }

@@ -2,21 +2,13 @@ package org.example.marhol.tasks.services;
 
 public class Check {
 
-    public boolean checkForExitSignal(String string) {
-        return (string.equals("Q") || string.equals("q"));
-    }
+    private static final String REGEX_FOR_Q = "[Qq]";
 
-    public boolean checkIfANumber(String string) {
-        try {
-            Integer.parseInt(string);
-            return true;
-        }
-        catch (NumberFormatException e) {
-            return false;
-        }
+    public boolean checkForExitSignal(String string) {
+        return string.matches(REGEX_FOR_Q);
     }
 
     public boolean checkIfRegexMatches(String string, String regex) {
-        return string.matches(regex) || checkForExitSignal(string);
+        return string.matches(regex);
     }
 }
