@@ -6,11 +6,13 @@ import org.example.marhol.tasks.services.Reader;
 
 public class SecondTaskLogic {
 
+    private static final String REGEX_FOR_NAMES = "[А-ЯA-Z]?[а-яa-z]+";
     private static final String NAME = "Вячеслав";
     private static final String HELLO = "Привет, %s";
     private static final String WELCOME_MESSAGE = "Давайте узнаем, ваше имя " + NAME;
     private static final String NO_SUCH_NAME_MESSAGE = "Нет такого имени";
     private static final String NAME_REQUEST_MESSAGE = "Введите ваше имя или Q/q для выхода";
+
     private final Printer printer;
     private final Reader reader;
     private final Check check;
@@ -22,18 +24,25 @@ public class SecondTaskLogic {
     }
 
     public void start() {
-        printer.print(WELCOME_MESSAGE);
+        printer.println(WELCOME_MESSAGE);
         while (true) {
-            printer.print(NAME_REQUEST_MESSAGE);
+            printer.println(NAME_REQUEST_MESSAGE);
             String string = reader.scanString();
-            if (check.checkForQuite(string)) {
-                printer.printBuyMessage();
-                break;
+            if (check.checkIfRegexMatches(string, REGEX_FOR_NAMES)) {
+                if (string.equalsIgnoreCase(NAME)) {
+                    printer.println(String.format(HELLO, NAME));
+                }
+                else if (check.checkForExitSignal(string)) {
+                    printer.printBuyMessage();
+                    break;
+                }
+                else {
+                    printer.println(NO_SUCH_NAME_MESSAGE);
+                }
             }
-            else if (string.equals(NAME)) {
-                printer.print(String.format(HELLO, NAME));
+            else {
+                printer.printCommonErrorMessage();
             }
-            else printer.print(NO_SUCH_NAME_MESSAGE);
         }
     }
 }
