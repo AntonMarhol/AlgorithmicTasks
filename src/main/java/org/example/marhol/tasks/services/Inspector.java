@@ -1,6 +1,6 @@
 package org.example.marhol.tasks.services;
 
-public class Check {
+public class Inspector {
 
     private static final String REGEX_FOR_Q = "[Qq]";
 

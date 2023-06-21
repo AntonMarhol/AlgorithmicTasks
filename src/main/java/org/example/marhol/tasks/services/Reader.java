@@ -10,11 +10,11 @@ public class Reader {
         scanner = new Scanner(System.in);
     }
 
-    public int readeNumberFromString(String string) {
+    public int readNumberFromString(String string) {
         return Integer.parseInt(string);
     }
 
-    public String scanString() {
+    public String scanNewString() {
         return scanner.nextLine();
     }
 }

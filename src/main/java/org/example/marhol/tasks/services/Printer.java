@@ -2,11 +2,12 @@ package org.example.marhol.tasks.services;
 
 public class Printer {
 
-    private static final String BUY_MESSAGE = "Пока";
+    private static final String BUY_MESSAGE = "Спасибо что воспользовалтсь нашей программой";
     private static final String ERROR_MESSAGE = "Вы ввели недопустимые символы.";
+    private static final String GO_BACK_MESSAGE = "Возвращаемся в главное меню.";
 
     public void println(String string) {
-        System.out.println(string);
+        System.out.println("\n" + string);
     }
 
     public void print(String string) {
@@ -19,5 +20,16 @@ public class Printer {
 
     public void printCommonErrorMessage() {
         println(ERROR_MESSAGE);
+    }
+
+    public void printGoBackMessage() {
+        println(GO_BACK_MESSAGE);
+    }
+
+    public void printLineBeforeText(String string) {
+        for (int i = 0; i < 45; i++) {
+            print(" *");
+        }
+        println("\n" + string);
     }
 }
