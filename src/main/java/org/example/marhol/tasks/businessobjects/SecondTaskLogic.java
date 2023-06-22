@@ -13,22 +13,26 @@ public class SecondTaskLogic extends AbstractLogic {
         printer.printLineBeforeText(WELCOME_MESSAGE);
         while (true) {
             printer.printLineBeforeText(NAME_REQUEST_MESSAGE);
-            String string = reader.scanNewString();
-            if (inspector.checkForExitSignal(string)) {
+            String name = reader.scanNewString();
+            if (inspector.checkForExitSignal(name)) {
                 printer.printGoBackMessage();
                 break;
             }
-            else if (inspector.checkIfRegexMatches(string, REGEX_FOR_NAMES)) {
-                if (string.equalsIgnoreCase(NAME)) {
-                    printer.println(String.format(HELLO_PATTERN, NAME));
-                }
-                else {
-                    printer.println(NO_SUCH_NAME_MESSAGE);
-                }
+            else if (inspector.checkIfRegexMatches(name, REGEX_FOR_NAMES)) {
+                checkIfNameCorrect(name);
             }
             else {
                 printer.printCommonErrorMessage();
             }
+        }
+    }
+
+    private void checkIfNameCorrect(String nameToCheck) {
+        if (nameToCheck.equalsIgnoreCase(NAME)) {
+            printer.println(String.format(HELLO_PATTERN, NAME));
+        }
+        else {
+            printer.println(NO_SUCH_NAME_MESSAGE);
         }
     }
 }

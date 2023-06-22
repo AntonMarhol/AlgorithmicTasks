@@ -7,28 +7,38 @@ public class FirstTaskLogic extends AbstractLogic {
     private static final String WELCOME_MESSAGE = String.format("ДАВАЙТЕ УЗНАЕМ, ваше число больше %s ?", MAX_NUMBER);
     private static final String NUMBER_IS_LESS_MESSAGE = "Введенное число не больше " + MAX_NUMBER;
     private static final String NUMBER_REQUEST_MESSAGE = "Введите ваше число или Q/q для выхода";
+    private static final String FORMAT_EXCEPTION_MESSAGE = "Вы ввели слишком длинное число.";
     private static final String NUMBER_REGEX = "\\d+";
 
     public void start() {
         printer.printLineBeforeText(WELCOME_MESSAGE);
         while (true) {
             printer.printLineBeforeText(NUMBER_REQUEST_MESSAGE);
-            String string = reader.scanNewString();
-            if (inspector.checkForExitSignal(string)) {
+            String numberAsString = reader.scanNewString();
+            if (inspector.checkForExitSignal(numberAsString)) {
                 printer.printGoBackMessage();
                 break;
             }
-            else if (inspector.checkIfRegexMatches(string, NUMBER_REGEX)) {
-                if (reader.readNumberFromString(string) > MAX_NUMBER) {
-                    printer.println(HELLO_MESSAGE);
-                }
-                else {
-                    printer.println(NUMBER_IS_LESS_MESSAGE);
-                }
+            else if (inspector.checkIfRegexMatches(numberAsString, NUMBER_REGEX)) {
+                checkIfNumberGreater(numberAsString);
             }
             else {
                 printer.printCommonErrorMessage();
             }
+        }
+    }
+
+    private void checkIfNumberGreater(String string) {
+        try {
+            if (reader.readNumberFromString(string) > MAX_NUMBER) {
+                printer.println(HELLO_MESSAGE);
+            }
+            else {
+                printer.println(NUMBER_IS_LESS_MESSAGE);
+            }
+        }
+        catch (NumberFormatException exception) {
+            printer.println(FORMAT_EXCEPTION_MESSAGE);
         }
     }
 }

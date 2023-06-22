@@ -12,32 +12,37 @@ public class ThirdTaskLogic extends AbstractLogic {
     private static final String SPACE = " ";
 
     public void start() {
+        String stringOfNumbers;
         printer.printLineBeforeText(WELCOME_MESSAGE);
         while (true) {
-            boolean hasResult = false;
             printer.printLineBeforeText(ARRAY_REQUEST_MESSAGE);
-            String stringOfNumbers = reader.scanNewString();
+            stringOfNumbers = reader.scanNewString();
             if (inspector.checkForExitSignal(stringOfNumbers)) {
                 printer.printGoBackMessage();
                 break;
             }
             else if (inspector.checkIfRegexMatches(stringOfNumbers, REGEX_FOR_ARRAY_OF_NUMBERS)) {
-                    for (String s : stringOfNumbers.split(SPACE)) {
-                        if (reader.readNumberFromString(s) % MULTIPLE == 0) {
-                            if (!hasResult) {
-                                printer.println(RESULT_MESSAGE);
-                            }
-                            hasResult = true;
-                            printer.print(s + SPACE);
-                        }
-                    }
-                    if (!hasResult) {
-                        printer.println(NO_RESULT_MESSAGE);
-                    }
+                checkArrayForMultiples(stringOfNumbers);
             }
             else {
                 printer.println(ERROR_MESSAGE);
             }
+        }
+    }
+
+    private void checkArrayForMultiples(String stringOfNumbers) {
+        boolean hasResult = false;
+        for (String s : stringOfNumbers.split(SPACE)) {
+            if (reader.readNumberFromString(s) % MULTIPLE == 0) {
+                if (!hasResult) {
+                    printer.println(RESULT_MESSAGE);
+                }
+                hasResult = true;
+                printer.print(s + SPACE);
+            }
+        }
+        if (!hasResult) {
+            printer.println(NO_RESULT_MESSAGE);
         }
     }
 }

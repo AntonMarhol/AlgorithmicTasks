@@ -11,7 +11,7 @@ public class Reader {
     }
 
     public int readNumberFromString(String string) {
-        return Integer.parseInt(string);
+            return Integer.parseInt(string);
     }
 
     public String scanNewString() {
