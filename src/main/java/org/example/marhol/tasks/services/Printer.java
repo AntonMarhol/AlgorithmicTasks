@@ -5,6 +5,7 @@ public class Printer {
     private static final String BUY_MESSAGE = "Спасибо что воспользовалтсь нашей программой";
     private static final String COMMON_ERROR_MESSAGE = "Вы ввели недопустимые символы.";
     private static final String GO_BACK_MESSAGE = "Возвращаемся в главное меню.";
+    private static final String FORMAT_EXCEPTION_MESSAGE = "Вы ввели слишком длинное число.";
 
     public void println(String string) {
         System.out.println("\n" + string);
@@ -24,6 +25,10 @@ public class Printer {
 
     public void printGoBackMessage() {
         println(GO_BACK_MESSAGE);
+    }
+
+    public void printFormatExceptionMessage() {
+        println(FORMAT_EXCEPTION_MESSAGE);
     }
 
     public void printLineBeforeText(String string) {

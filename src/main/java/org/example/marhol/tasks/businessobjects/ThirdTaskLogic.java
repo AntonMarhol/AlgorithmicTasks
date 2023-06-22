@@ -32,17 +32,23 @@ public class ThirdTaskLogic extends AbstractLogic {
 
     private void checkArrayForMultiples(String stringOfNumbers) {
         boolean hasResult = false;
-        for (String s : stringOfNumbers.split(SPACE)) {
-            if (reader.readNumberFromString(s) % MULTIPLE == 0) {
-                if (!hasResult) {
-                    printer.println(RESULT_MESSAGE);
+        try {
+            for (String s : stringOfNumbers.split(SPACE)) {
+                int number = reader.readNumberFromString(s);
+                if (number != 0 && number % MULTIPLE == 0) {
+                    if (!hasResult) {
+                        printer.println(RESULT_MESSAGE);
+                    }
+                    hasResult = true;
+                    printer.print(number + SPACE);
                 }
-                hasResult = true;
-                printer.print(s + SPACE);
+            }
+            if (!hasResult) {
+                printer.println(NO_RESULT_MESSAGE);
             }
         }
-        if (!hasResult) {
-            printer.println(NO_RESULT_MESSAGE);
+        catch (NumberFormatException exception) {
+            printer.printFormatExceptionMessage();
         }
     }
 }

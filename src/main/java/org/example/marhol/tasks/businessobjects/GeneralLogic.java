@@ -18,25 +18,29 @@ public class GeneralLogic extends AbstractLogic{
                 break;
             }
             else if (inspector.checkIfRegexMatches(chosenTaskNumber, NUMBER_OF_TASKS_REGEX)) {
-                switch (reader.readNumberFromString(chosenTaskNumber)) {
-                    case 1 : {
-                        abstractLogic = new FirstTaskLogic();
-                        break;
-                    }
-                    case 2 : {
-                        abstractLogic = new SecondTaskLogic();
-                        break;
-                    }
-                    case 3 : {
-                        abstractLogic = new ThirdTaskLogic();
-                        break;
-                    }
-                }
-                abstractLogic.start();
+                runLowLevelLogic(chosenTaskNumber);
             }
             else {
                 printer.println(ERROR_MESSAGE);
             }
         }
+    }
+
+    private void runLowLevelLogic(String chosenTaskNumber) {
+        switch (reader.readNumberFromString(chosenTaskNumber)) {
+            case 1 : {
+                abstractLogic = new FirstTaskLogic();
+                break;
+            }
+            case 2 : {
+                abstractLogic = new SecondTaskLogic();
+                break;
+            }
+            case 3 : {
+                abstractLogic = new ThirdTaskLogic();
+                break;
+            }
+        }
+        abstractLogic.start();
     }
 }
