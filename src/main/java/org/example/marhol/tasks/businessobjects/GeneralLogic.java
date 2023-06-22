@@ -5,7 +5,7 @@ public class GeneralLogic extends AbstractLogic{
     private static final String NUMBER_OF_TASKS_REGEX = "[1-3]";
     private static final String ERROR_MESSAGE = "Вы ввели недопустимое значение";
     private static final String TASK_SELECTION_MESSAGE = "Введите номер задачи от 1 до 3 или Q/q для выхода";
-    private static final String START_MESSAGE = "Вы можете используя цифры 1-3 запустить решение интересующей вас задачи.";
+    private static final String START_MESSAGE = "ВСЕ РЕШЕНИЯ ЗАДАЧ В ОДНОЙ ПРОГРАММЕ!!!!!";
     private AbstractLogic abstractLogic;
 
     public void start() {

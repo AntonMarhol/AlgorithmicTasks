@@ -3,7 +3,7 @@ package org.example.marhol.tasks.services;
 public class Printer {
 
     private static final String BUY_MESSAGE = "Спасибо что воспользовалтсь нашей программой";
-    private static final String ERROR_MESSAGE = "Вы ввели недопустимые символы.";
+    private static final String COMMON_ERROR_MESSAGE = "Вы ввели недопустимые символы.";
     private static final String GO_BACK_MESSAGE = "Возвращаемся в главное меню.";
 
     public void println(String string) {
@@ -19,7 +19,7 @@ public class Printer {
     }
 
     public void printCommonErrorMessage() {
-        println(ERROR_MESSAGE);
+        println(COMMON_ERROR_MESSAGE);
     }
 
     public void printGoBackMessage() {
@@ -27,9 +27,13 @@ public class Printer {
     }
 
     public void printLineBeforeText(String string) {
+        print("\n");
         for (int i = 0; i < 45; i++) {
-            print(" *");
+            if (i > 0) {
+                print(" ");
+            }
+            print("*");
         }
-        println("\n" + string);
+        println(string);
     }
 }
