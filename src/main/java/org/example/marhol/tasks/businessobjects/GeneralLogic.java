@@ -12,13 +12,13 @@ public class GeneralLogic extends AbstractLogic{
         printer.printLineBeforeText(START_MESSAGE);
         while (true) {
             printer.printLineBeforeText(TASK_SELECTION_MESSAGE);
-            String chosenSolution = reader.scanNewString();
-            if (inspector.checkForExitSignal(chosenSolution)) {
+            String chosenTaskNumber = reader.scanNewString();
+            if (inspector.checkForExitSignal(chosenTaskNumber)) {
                 printer.printBuyMessage();
                 break;
             }
-            else if (inspector.checkIfRegexMatches(chosenSolution, NUMBER_OF_TASKS_REGEX)) {
-                switch (reader.readNumberFromString(chosenSolution)) {
+            else if (inspector.checkIfRegexMatches(chosenTaskNumber, NUMBER_OF_TASKS_REGEX)) {
+                switch (reader.readNumberFromString(chosenTaskNumber)) {
                     case 1 : {
                         abstractLogic = new FirstTaskLogic();
                         break;
