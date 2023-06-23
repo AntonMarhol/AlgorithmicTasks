@@ -1,6 +1,6 @@
 package org.example.marhol.tasks.main.firsttask;
 
-import org.example.marhol.tasks.businessobjects.FirstTaskLogic;
+import org.example.marhol.tasks.businesslogic.FirstTaskLogic;
 
 public class Main {
 

@@ -1,6 +1,6 @@
 package org.example.marhol.tasks.main.secondtask;
 
-import org.example.marhol.tasks.businessobjects.SecondTaskLogic;
+import org.example.marhol.tasks.businesslogic.SecondTaskLogic;
 
 public class Main {
 

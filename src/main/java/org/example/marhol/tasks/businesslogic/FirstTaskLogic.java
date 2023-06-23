@@ -1,4 +1,4 @@
-package org.example.marhol.tasks.businessobjects;
+package org.example.marhol.tasks.businesslogic;
 
 public class FirstTaskLogic extends AbstractLogic {
 

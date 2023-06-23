@@ -1,4 +1,4 @@
-package org.example.marhol.tasks.businessobjects;
+package org.example.marhol.tasks.businesslogic;
 
 import org.example.marhol.tasks.services.Inspector;
 import org.example.marhol.tasks.services.Printer;
