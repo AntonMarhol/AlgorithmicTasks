@@ -9,6 +9,7 @@ public class FirstTaskLogic extends AbstractLogic {
     private static final String NUMBER_REQUEST_MESSAGE = "Введите ваше целое число или Q/q для выхода";
     private static final String NUMBER_REGEX = "\\+?\\-?[\\d]+";
 
+    @Override
     public void start() {
         String numberAsString;
         printer.printLineBeforeText(WELCOME_MESSAGE);

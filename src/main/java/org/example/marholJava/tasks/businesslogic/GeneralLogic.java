@@ -9,6 +9,7 @@ public class GeneralLogic extends AbstractLogic{
     private static final String TASK_SELECTION_MESSAGE = String.format("Введите номер задачи от 1 до %s или Q/q для выхода", NUMBER_OF_TASKS);
     private AbstractLogic abstractLogic;
 
+    @Override
     public void start() {
         String chosenTaskNumber;
         printer.printLineBeforeText(START_MESSAGE);

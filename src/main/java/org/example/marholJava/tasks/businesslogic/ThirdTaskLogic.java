@@ -11,6 +11,7 @@ public class ThirdTaskLogic extends AbstractLogic {
     private static final String REGEX_FOR_ARRAY_OF_NUMBERS = "((\\+?\\-?\\d+)\\s?)+";
     private static final String SPACE = " ";
 
+    @Override
     public void start() {
         String stringOfNumbers;
         printer.printLineBeforeText(WELCOME_MESSAGE);

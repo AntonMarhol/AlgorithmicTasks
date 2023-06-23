@@ -9,6 +9,7 @@ public class SecondTaskLogic extends AbstractLogic {
     private static final String NO_SUCH_NAME_MESSAGE = "Нет такого имени";
     private static final String NAME_REQUEST_MESSAGE = "Введите ваше имя или Q/q для выхода";
 
+    @Override
     public void start() {
         String name;
         printer.printLineBeforeText(WELCOME_MESSAGE);
