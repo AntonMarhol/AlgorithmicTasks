@@ -8,14 +8,15 @@ public class ThirdTaskLogic extends AbstractLogic {
     private static final String NO_RESULT_MESSAGE = String.format("В вашем массиве нет чисел кратных %s", MULTIPLE);
     private static final String ARRAY_REQUEST_MESSAGE = "Введите массив чисел разделяя числа пробелами или Q/q для выхода.";
     private static final String WELCOME_MESSAGE = String.format("ДАВАЙТЕ УЗНАЕМ, какие числа в вашем массиве кратны %s ?", MULTIPLE);
-    private static final String REGEX_FOR_ARRAY_OF_NUMBERS = "((\\-?\\d+)\\s?)+";
+    private static final String REGEX_FOR_ARRAY_OF_NUMBERS = "((\\+?\\-?\\d+)\\s?)+";
     private static final String SPACE = " ";
 
     public void start() {
+        String stringOfNumbers;
         printer.printLineBeforeText(WELCOME_MESSAGE);
         while (true) {
-            String stringOfNumbers = reader.scanNewString();
             printer.printLineBeforeText(ARRAY_REQUEST_MESSAGE);
+            stringOfNumbers = reader.scanNewString();
             if (inspector.checkForExitSignal(stringOfNumbers)) {
                 printer.printGoBackMessage();
                 break;

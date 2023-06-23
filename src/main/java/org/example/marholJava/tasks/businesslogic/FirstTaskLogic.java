@@ -10,10 +10,11 @@ public class FirstTaskLogic extends AbstractLogic {
     private static final String NUMBER_REGEX = "\\-?[\\d]+";
 
     public void start() {
+        String numberAsString;
         printer.printLineBeforeText(WELCOME_MESSAGE);
         while (true) {
-            String numberAsString = reader.scanNewString();
             printer.printLineBeforeText(NUMBER_REQUEST_MESSAGE);
+            numberAsString = reader.scanNewString();
             if (inspector.checkForExitSignal(numberAsString)) {
                 printer.printGoBackMessage();
                 break;

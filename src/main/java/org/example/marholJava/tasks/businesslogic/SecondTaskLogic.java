@@ -10,10 +10,11 @@ public class SecondTaskLogic extends AbstractLogic {
     private static final String NAME_REQUEST_MESSAGE = "Введите ваше имя или Q/q для выхода";
 
     public void start() {
+        String name;
         printer.printLineBeforeText(WELCOME_MESSAGE);
         while (true) {
-            String name = reader.scanNewString();
             printer.printLineBeforeText(NAME_REQUEST_MESSAGE);
+            name = reader.scanNewString();
             if (inspector.checkForExitSignal(name)) {
                 printer.printGoBackMessage();
                 break;
