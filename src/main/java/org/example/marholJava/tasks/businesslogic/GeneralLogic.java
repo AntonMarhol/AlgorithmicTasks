@@ -28,8 +28,8 @@ public class GeneralLogic extends AbstractLogic{
         }
     }
 
-    private void runLowLevelLogic(String chosenTaskNumber) {
-        switch (reader.readNumberFromString(chosenTaskNumber)) {
+    private void runLowLevelLogic(String string) {
+        switch (reader.readNumberFromString(string)) {
             case 1 : {
                 abstractLogic = new FirstTaskLogic();
                 break;

@@ -30,10 +30,10 @@ public class ThirdTaskLogic extends AbstractLogic {
         }
     }
 
-    private void checkArrayForMultiples(String stringOfNumbers) {
+    private void checkArrayForMultiples(String string) {
         boolean hasResult = false;
         try {
-            for (String arrayElement : stringOfNumbers.split(SPACE)) {
+            for (String arrayElement : string.split(SPACE)) {
                 int number = reader.readNumberFromString(arrayElement);
                 if (number != 0 && number % MULTIPLE == 0) {
                     if (!hasResult) {
