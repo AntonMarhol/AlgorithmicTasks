@@ -12,8 +12,8 @@ public class GeneralLogic extends AbstractLogic{
     public void start() {
         printer.printLineBeforeText(START_MESSAGE);
         while (true) {
-            printer.printLineBeforeText(TASK_SELECTION_MESSAGE);
             String chosenTaskNumber = reader.scanNewString();
+            printer.printLineBeforeText(TASK_SELECTION_MESSAGE);
             if (inspector.checkForExitSignal(chosenTaskNumber)) {
                 printer.printBuyMessage();
                 break;

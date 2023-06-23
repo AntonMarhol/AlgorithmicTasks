@@ -12,8 +12,8 @@ public class SecondTaskLogic extends AbstractLogic {
     public void start() {
         printer.printLineBeforeText(WELCOME_MESSAGE);
         while (true) {
-            printer.printLineBeforeText(NAME_REQUEST_MESSAGE);
             String name = reader.scanNewString();
+            printer.printLineBeforeText(NAME_REQUEST_MESSAGE);
             if (inspector.checkForExitSignal(name)) {
                 printer.printGoBackMessage();
                 break;

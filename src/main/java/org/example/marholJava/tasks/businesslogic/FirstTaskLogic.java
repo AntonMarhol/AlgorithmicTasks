@@ -12,8 +12,8 @@ public class FirstTaskLogic extends AbstractLogic {
     public void start() {
         printer.printLineBeforeText(WELCOME_MESSAGE);
         while (true) {
-            printer.printLineBeforeText(NUMBER_REQUEST_MESSAGE);
             String numberAsString = reader.scanNewString();
+            printer.printLineBeforeText(NUMBER_REQUEST_MESSAGE);
             if (inspector.checkForExitSignal(numberAsString)) {
                 printer.printGoBackMessage();
                 break;

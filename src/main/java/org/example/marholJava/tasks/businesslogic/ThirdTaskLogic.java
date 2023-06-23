@@ -12,11 +12,10 @@ public class ThirdTaskLogic extends AbstractLogic {
     private static final String SPACE = " ";
 
     public void start() {
-        String stringOfNumbers;
         printer.printLineBeforeText(WELCOME_MESSAGE);
         while (true) {
+            String stringOfNumbers = reader.scanNewString();
             printer.printLineBeforeText(ARRAY_REQUEST_MESSAGE);
-            stringOfNumbers = reader.scanNewString();
             if (inspector.checkForExitSignal(stringOfNumbers)) {
                 printer.printGoBackMessage();
                 break;
