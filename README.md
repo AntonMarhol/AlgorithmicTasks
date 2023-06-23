@@ -9,7 +9,7 @@
     
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)  
 
-<p><h4 align="left" ><a href="https://github.com/AntonMarhol/AndersenTasks/tree/master">В этом проекте содержится код решений трех интересных задач</h4></p>
+<p><h4 align="left" ><a href="https://github.com/AntonMarhol/AndersenTasks/tree/master">В этом репозитории содержится код решений трех интересных задач</h4></p>
 
 <p dir="50"></p>
 <p><h4 align="left">Для запуска кода решений задач на исполнение, следует запустить один из Main классов <a href="https://github.com/AntonMarhol/AndersenTasks/tree/master/src/main/java/org/example/marhol/tasks/main/firsttask">для Первой задачи</a>,
