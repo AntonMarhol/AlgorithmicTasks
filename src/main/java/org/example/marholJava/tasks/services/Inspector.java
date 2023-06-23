@@ -1,4 +1,4 @@
-package org.example.marhol.tasks.services;
+package org.example.marholJava.tasks.services;
 
 public class Inspector {
 

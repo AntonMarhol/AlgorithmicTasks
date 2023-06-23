@@ -1,8 +1,8 @@
-package org.example.marhol.tasks.businesslogic;
+package org.example.marholJava.tasks.businesslogic;
 
-import org.example.marhol.tasks.services.Inspector;
-import org.example.marhol.tasks.services.Printer;
-import org.example.marhol.tasks.services.Reader;
+import org.example.marholJava.tasks.services.Inspector;
+import org.example.marholJava.tasks.services.Printer;
+import org.example.marholJava.tasks.services.Reader;
 
 public abstract class AbstractLogic {
 
