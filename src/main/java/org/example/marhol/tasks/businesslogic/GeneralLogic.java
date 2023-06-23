@@ -2,10 +2,11 @@ package org.example.marhol.tasks.businesslogic;
 
 public class GeneralLogic extends AbstractLogic{
 
-    private static final String NUMBER_OF_TASKS_REGEX = "[1-3]";
+    private static final int NUMBER_OF_TASKS = 3;
     private static final String ERROR_MESSAGE = "Вы ввели недопустимое значение";
-    private static final String TASK_SELECTION_MESSAGE = "Введите номер задачи от 1 до 3 или Q/q для выхода";
     private static final String START_MESSAGE = "ВСЕ РЕШЕНИЯ ЗАДАЧ В ОДНОЙ ПРОГРАММЕ!!!!!";
+    private static final String NUMBER_OF_TASKS_REGEX = String.format("[1-%s]", NUMBER_OF_TASKS);
+    private static final String TASK_SELECTION_MESSAGE = String.format("Введите номер задачи от 1 до %s или Q/q для выхода", NUMBER_OF_TASKS);
     private AbstractLogic abstractLogic;
 
     public void start() {
