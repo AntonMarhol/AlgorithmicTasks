@@ -11,15 +11,7 @@ public class SecondTaskLogic extends AbstractLogic {
 
     @Override
     public void start() {
-        boolean end = false;
-        printer.printLineBeforeText(WELCOME_MESSAGE);
-        while (!end) {
-            printer.printLineBeforeText(NAME_REQUEST_MESSAGE);
-            end = runBasicLogic(reader.scanNewString(), REGEX_FOR_NAMES);
-            if (end) {
-                printer.printGoBackMessage();
-            }
-        }
+        runBasicLogic(WELCOME_MESSAGE, NAME_REQUEST_MESSAGE, REGEX_FOR_NAMES);
     }
 
     @Override

@@ -16,7 +16,19 @@ public abstract class AbstractLogic {
         inspector = new Inspector();
     }
 
-    protected boolean runBasicLogic(String string, String regex) {
+    protected void runBasicLogic(String startMessage, String taskMessage, String regex) {
+        boolean end = false;
+        printer.printLineBeforeText(startMessage);
+        while (!end) {
+            printer.printLineBeforeText(taskMessage);
+            end = runProtectionLogic(reader.scanNewString(), regex);
+            if (end) {
+                printer.printGoBackMessage();
+            }
+        }
+    }
+
+    protected boolean runProtectionLogic(String string, String regex) {
         if (inspector.checkForExitSignal(string)) {
             return true;
         }

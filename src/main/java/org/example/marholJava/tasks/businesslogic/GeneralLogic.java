@@ -10,15 +10,8 @@ public class GeneralLogic extends AbstractLogic{
 
     @Override
     public void start() {
-        boolean end = false;
-        printer.printLineBeforeText(START_MESSAGE);
-        while (!end) {
-            printer.printLineBeforeText(TASK_SELECTION_MESSAGE);
-            end = runBasicLogic(reader.scanNewString(), NUMBER_OF_TASKS_REGEX);
-            if (end) {
-                printer.printBuyMessage();
-            }
-        }
+        runBasicLogic(START_MESSAGE, TASK_SELECTION_MESSAGE, NUMBER_OF_TASKS_REGEX);
+        printer.printBuyMessage();
     }
 
     @Override

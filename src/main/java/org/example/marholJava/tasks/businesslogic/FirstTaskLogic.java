@@ -11,15 +11,7 @@ public class FirstTaskLogic extends AbstractLogic {
 
     @Override
     public void start() {
-        boolean end = false;
-        printer.printLineBeforeText(WELCOME_MESSAGE);
-        while (!end) {
-            printer.printLineBeforeText(NUMBER_REQUEST_MESSAGE);
-            end = runBasicLogic(reader.scanNewString(), NUMBER_REGEX);
-            if (end) {
-                printer.printGoBackMessage();
-            }
-        }
+        runBasicLogic(WELCOME_MESSAGE, NUMBER_REQUEST_MESSAGE, NUMBER_REGEX);
     }
 
     @Override

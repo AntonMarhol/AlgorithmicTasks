@@ -12,15 +12,7 @@ public class ThirdTaskLogic extends AbstractLogic {
 
     @Override
     public void start() {
-        boolean end = false;
-        printer.printLineBeforeText(WELCOME_MESSAGE);
-        while (!end) {
-            printer.printLineBeforeText(ARRAY_REQUEST_MESSAGE);
-            end = runBasicLogic(reader.scanNewString(), REGEX_FOR_ARRAY_OF_NUMBERS);
-            if (end) {
-                printer.printGoBackMessage();
-            }
-        }
+        runBasicLogic(WELCOME_MESSAGE, ARRAY_REQUEST_MESSAGE, REGEX_FOR_ARRAY_OF_NUMBERS);
     }
 
     @Override
