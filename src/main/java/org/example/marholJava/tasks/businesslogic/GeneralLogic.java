@@ -3,7 +3,6 @@ package org.example.marholJava.tasks.businesslogic;
 public class GeneralLogic extends AbstractLogic{
 
     private static final int NUMBER_OF_TASKS = 3;
-    private static final String ERROR_MESSAGE = "Вы ввели недопустимое значение";
     private static final String START_MESSAGE = "ВСЕ РЕШЕНИЯ ЗАДАЧ В ОДНОЙ ПРОГРАММЕ!!!!!";
     private static final String NUMBER_OF_TASKS_REGEX = String.format("\\+?[1-%s]", NUMBER_OF_TASKS);
     private static final String TASK_SELECTION_MESSAGE = String.format("Введите номер задачи от 1 до %s или Q/q для выхода", NUMBER_OF_TASKS);
@@ -11,25 +10,19 @@ public class GeneralLogic extends AbstractLogic{
 
     @Override
     public void start() {
-        String chosenTaskNumber;
+        boolean end = false;
         printer.printLineBeforeText(START_MESSAGE);
-        while (true) {
+        while (!end) {
             printer.printLineBeforeText(TASK_SELECTION_MESSAGE);
-            chosenTaskNumber = reader.scanNewString();
-            if (inspector.checkForExitSignal(chosenTaskNumber)) {
+            end = runBasicLogic(reader.scanNewString(), NUMBER_OF_TASKS_REGEX);
+            if (end) {
                 printer.printBuyMessage();
-                break;
-            }
-            else if (inspector.checkIfRegexMatches(chosenTaskNumber, NUMBER_OF_TASKS_REGEX)) {
-                runLowLevelLogic(chosenTaskNumber);
-            }
-            else {
-                printer.println(ERROR_MESSAGE);
             }
         }
     }
 
-    private void runLowLevelLogic(String string) {
+    @Override
+    protected void runLowLevelLogic(String string) {
         switch (reader.readNumberFromString(string)) {
             case 1 : {
                 abstractLogic = new FirstTaskLogic();

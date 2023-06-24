@@ -11,25 +11,19 @@ public class SecondTaskLogic extends AbstractLogic {
 
     @Override
     public void start() {
-        String name;
+        boolean end = false;
         printer.printLineBeforeText(WELCOME_MESSAGE);
-        while (true) {
+        while (!end) {
             printer.printLineBeforeText(NAME_REQUEST_MESSAGE);
-            name = reader.scanNewString();
-            if (inspector.checkForExitSignal(name)) {
+            end = runBasicLogic(reader.scanNewString(), REGEX_FOR_NAMES);
+            if (end) {
                 printer.printGoBackMessage();
-                break;
-            }
-            else if (inspector.checkIfRegexMatches(name, REGEX_FOR_NAMES)) {
-                checkIfNameCorrect(name);
-            }
-            else {
-                printer.printCommonErrorMessage();
             }
         }
     }
 
-    private void checkIfNameCorrect(String nameToCheck) {
+    @Override
+    protected void runLowLevelLogic(String nameToCheck) {
         if (nameToCheck.equalsIgnoreCase(NAME)) {
             printer.println(String.format(HELLO_PATTERN, NAME));
         }

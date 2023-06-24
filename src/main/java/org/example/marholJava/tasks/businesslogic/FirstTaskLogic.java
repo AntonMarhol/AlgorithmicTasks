@@ -11,25 +11,19 @@ public class FirstTaskLogic extends AbstractLogic {
 
     @Override
     public void start() {
-        String numberAsString;
+        boolean end = false;
         printer.printLineBeforeText(WELCOME_MESSAGE);
-        while (true) {
+        while (!end) {
             printer.printLineBeforeText(NUMBER_REQUEST_MESSAGE);
-            numberAsString = reader.scanNewString();
-            if (inspector.checkForExitSignal(numberAsString)) {
+            end = runBasicLogic(reader.scanNewString(), NUMBER_REGEX);
+            if (end) {
                 printer.printGoBackMessage();
-                break;
-            }
-            else if (inspector.checkIfRegexMatches(numberAsString, NUMBER_REGEX)) {
-                checkIfNumberGreater(numberAsString);
-            }
-            else {
-                printer.printCommonErrorMessage();
             }
         }
     }
 
-    private void checkIfNumberGreater(String string) {
+    @Override
+    protected void runLowLevelLogic(String string) {
         try {
             if (reader.readNumberFromString(string) > MAX_NUMBER) {
                 printer.println(HELLO_MESSAGE);

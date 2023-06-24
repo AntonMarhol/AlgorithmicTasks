@@ -3,7 +3,7 @@ package org.example.marholJava.tasks.services;
 public class Printer {
 
     private static final String BUY_MESSAGE = "Спасибо что воспользовалтсь нашей программой";
-    private static final String COMMON_ERROR_MESSAGE = "Вы ввели недопустимые символы.";
+    private static final String COMMON_ERROR_MESSAGE = "Вы ввели недопустимые символы или значения.";
     private static final String GO_BACK_MESSAGE = "Возвращаемся в главное меню.";
     private static final String FORMAT_EXCEPTION_MESSAGE = "Вы ввели слишком длинное число.";
 

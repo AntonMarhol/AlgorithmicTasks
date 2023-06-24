@@ -3,7 +3,6 @@ package org.example.marholJava.tasks.businesslogic;
 public class ThirdTaskLogic extends AbstractLogic {
 
     private static final int MULTIPLE = 3;
-    private static final String ERROR_MESSAGE = "В массиве присутствуют не только целые числа";
     private static final String RESULT_MESSAGE = String.format("Следующие числа в вашем массиве кратны %s", MULTIPLE);
     private static final String NO_RESULT_MESSAGE = String.format("В вашем массиве нет чисел кратных %s", MULTIPLE);
     private static final String ARRAY_REQUEST_MESSAGE = "Введите массив чисел разделяя числа пробелами или Q/q для выхода.";
@@ -13,25 +12,19 @@ public class ThirdTaskLogic extends AbstractLogic {
 
     @Override
     public void start() {
-        String stringOfNumbers;
+        boolean end = false;
         printer.printLineBeforeText(WELCOME_MESSAGE);
-        while (true) {
+        while (!end) {
             printer.printLineBeforeText(ARRAY_REQUEST_MESSAGE);
-            stringOfNumbers = reader.scanNewString();
-            if (inspector.checkForExitSignal(stringOfNumbers)) {
+            end = runBasicLogic(reader.scanNewString(), REGEX_FOR_ARRAY_OF_NUMBERS);
+            if (end) {
                 printer.printGoBackMessage();
-                break;
-            }
-            else if (inspector.checkIfRegexMatches(stringOfNumbers, REGEX_FOR_ARRAY_OF_NUMBERS)) {
-                checkArrayForMultiples(stringOfNumbers);
-            }
-            else {
-                printer.println(ERROR_MESSAGE);
             }
         }
     }
 
-    private void checkArrayForMultiples(String string) {
+    @Override
+    protected void runLowLevelLogic(String string) {
         boolean hasResult = false;
         try {
             for (String arrayElement : string.split(SPACE)) {
