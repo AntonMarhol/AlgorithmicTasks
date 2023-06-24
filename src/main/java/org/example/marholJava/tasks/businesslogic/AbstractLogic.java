@@ -21,15 +21,15 @@ public abstract class AbstractLogic {
         printer.printLineBeforeText(startMessage);
         while (!end) {
             printer.printLineBeforeText(taskMessage);
-            end = runProtectionLogic(reader.scanNewString(), regex);
+            end = runProtectedLogic(reader.scanNewString(), regex);
             if (end) {
                 printer.printGoBackMessage();
             }
         }
     }
 
-    protected boolean runProtectionLogic(String string, String regex) {
-        if (inspector.checkForExitSignal(string)) {
+    protected boolean runProtectedLogic(String string, String regex) {
+        if (inspector.checkForExitRequest(string)) {
             return true;
         }
         else if (inspector.checkIfRegexMatches(string, regex)) {
