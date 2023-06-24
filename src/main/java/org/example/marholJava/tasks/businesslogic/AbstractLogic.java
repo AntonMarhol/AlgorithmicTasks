@@ -23,6 +23,7 @@ public abstract class AbstractLogic {
             printer.printLineBeforeText(taskMessage);
             end = runProtectedLogic(reader.scanNewString(), regex);
             if (end) {
+
                 printer.printGoBackMessage();
             }
         }
