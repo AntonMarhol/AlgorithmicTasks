@@ -41,7 +41,7 @@ public abstract class AbstractLogic {
         return false;
     }
 
-    abstract void start();
+    public abstract void start();
 
-    abstract void runLowLevelLogic(String string);
+    protected abstract void runLowLevelLogic(String string);
 }
