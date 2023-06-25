@@ -17,18 +17,15 @@ public class GeneralLogic extends AbstractLogic{
     @Override
     protected void runLowLevelLogic(String string) {
         switch (reader.readNumberFromString(string)) {
-            case 1 : {
+            case 1 :
                 abstractLogic = new FirstTaskLogic();
                 break;
-            }
-            case 2 : {
+            case 2 :
                 abstractLogic = new SecondTaskLogic();
                 break;
-            }
-            case 3 : {
+            case 3 :
                 abstractLogic = new ThirdTaskLogic();
                 break;
-            }
         }
         abstractLogic.start();
     }
